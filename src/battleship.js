@@ -11,7 +11,6 @@ function createBoard(n , m) {
        }
        board.push(row)
    }
-   console.log(board)
 }
 
 function getRowLength() {
@@ -44,6 +43,10 @@ function getNumberOfPlayers() {
     return numberOfPlayers;
 }
 
+function getBoard() {
+    return [...board];
+}
+
 module.exports = {
     sum,
     createBoard,
@@ -53,4 +56,5 @@ module.exports = {
     isShipThere,
     createPlayers,
     getNumberOfPlayers,
+    getBoard,
 };

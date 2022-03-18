@@ -1,4 +1,4 @@
-const {sum, createBoard, getColumnLength, getRowLength, setShip, isShipThere, createPlayers,getNumberOfPlayers  } = require('../src/battleship')
+const {sum, createBoard, getColumnLength, getRowLength, setShip, isShipThere, createPlayers,getNumberOfPlayers, getBoard  } = require('../src/battleship')
 
 test('adds 1 + 2 to equal 3', () => {
     expect(sum(1, 2)).toBe(3);
@@ -21,7 +21,8 @@ test('set ship on the board', () => {
     expect(isShipThere([2,0])).toBeTruthy();
 });
 
-test('get players', () => {
-    createPlayers(['player1', 'player2']);
-    expect(getNumberOfPlayers()).toBe(2);
-});
+test('get Board', () => {
+   createBoard(5, 5);
+   const board = getBoard();
+   expect(board).toBeDefined();
+})
