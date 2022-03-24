@@ -1,5 +1,5 @@
-const { createBoard} = require("../src/battleship");
-const {createPlayer} = require("../src/battleShipPlayer");
+const { createBoard, getRowLength, getColumnLength} = require("../src/battleship");
+const { createPlayer } = require("../src/battleShipPlayer");
 
 test('get player', () => {
     const player = createPlayer('player1');
@@ -11,4 +11,6 @@ test('assign board to player', () => {
     const player = createPlayer('player1');
     player['board'] = board;
     expect(player.board).toBeDefined();
+    expect(getRowLength(player.board)).toBe(5);
+    expect(getColumnLength(player.board)).toBe(5);
 })

@@ -1,9 +1,9 @@
 function sum(a, b) {
     return a + b;
 }
-let board = [];
 let numberOfPlayers = 0;
 function createBoard(n , m) {
+    const board = [];
    for (let i = 0; i < n; i++) {
        let row = [];
        for (let j = 0; j<m; j++) {
@@ -11,23 +11,24 @@ function createBoard(n , m) {
        }
        board.push(row)
    }
+   return board;
 }
 
-function getRowLength() {
+function getRowLength(board) {
     return board.length;
 }
 
-function getColumnLength() {
+function getColumnLength(board) {
     return board[0].length;
 }
 
-function setShip(...positions) {
+function setShip(board, ...positions) {
     for(let i = 0; i < positions.length; i++) {
         const position = positions[i];
         board[position[0]][position[1]] = 'S';
     }
 }
-function isShipThere(position) {
+function isShipThere(board, position) {
     if (board[position[0]][position[1]] === 'S') {
         return true;
     }
@@ -43,10 +44,6 @@ function getNumberOfPlayers() {
     return numberOfPlayers;
 }
 
-function getBoard() {
-    return [...board];
-}
-
 module.exports = {
     sum,
     createBoard,
@@ -56,5 +53,4 @@ module.exports = {
     isShipThere,
     createPlayers,
     getNumberOfPlayers,
-    getBoard,
 };
