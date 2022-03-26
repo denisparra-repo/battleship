@@ -12,8 +12,8 @@ test('create a board 5 * 5', () => {
 
 test('set ship on the board', () => {
     const board = createBoard(5,5);
-    setShip(board, [0,0], [0,1]);
-    setShip(board, [4,0], [3,0], [2,0]);
+    setShip(board, [[0,0], [0,1]]);
+    setShip(board, [[4,0], [3,0], [2,0]]);
     expect(isShipThere(board,[0,0])).toBeTruthy();
     expect(isShipThere(board, [0,1])).toBeTruthy();
     expect(isShipThere(board, [4,0])).toBeTruthy();

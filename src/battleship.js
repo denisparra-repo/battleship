@@ -22,7 +22,7 @@ function getColumnLength(board) {
     return board[0].length;
 }
 
-function setShip(board, ...positions) {
+function setShip(board, positions) {
     for(let i = 0; i < positions.length; i++) {
         const position = positions[i];
         board[position[0]][position[1]] = 'S';
