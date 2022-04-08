@@ -1,5 +1,5 @@
 const  {createPlayer} = require("./battleShipPlayer");
-const {createBoard, setShip} = require("./battleship");
+const {createBoard, setShip, getShipPositions} = require("./battleship");
 
 let playerOne;
 let playerTwo;
