@@ -1,5 +1,5 @@
 const  {createPlayer} = require("./battleShipPlayer");
-const {createBoard, setShip, getShipPositions} = require("./battleship");
+const {createBoard, setShip, getShipPositions, areThereShips} = require("./battleship");
 
 let playerOne;
 let playerTwo;
@@ -42,11 +42,17 @@ const shoot = (position) => {
     return affectedPlayer.board[position[0]][position[1]];
 }
 
+const isThereAWinner = () => {
+    const affectedPlayer = turn === 'player 1' ? playerTwo : playerOne;
+    return !areThereShips(affectedPlayer.board);
+}
+
 module.exports = {
     initializeGame,
     getPlayerOne,
     getPlayerTwo,
     assignShips,
     shoot,
-    getPlayerTurn
+    getPlayerTurn,
+    isThereAWinner
 }

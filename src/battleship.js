@@ -56,6 +56,10 @@ function getShipPositions(board) {
    return result;
 }
 
+function areThereShips(board) {
+    return getShipPositions(board).length > 0;
+}
+
 module.exports = {
     sum,
     createBoard,
@@ -66,4 +70,5 @@ module.exports = {
     createPlayers,
     getNumberOfPlayers,
     getShipPositions,
+    areThereShips
 };

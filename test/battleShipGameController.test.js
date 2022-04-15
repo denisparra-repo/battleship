@@ -1,4 +1,4 @@
-const {initializeGame, getPlayerOne, getPlayerTwo, assignShips, shoot, getPlayerTurn} = require("../src/battleShipGameController");
+const {initializeGame, getPlayerOne, getPlayerTwo, assignShips, shoot, getPlayerTurn, isThereAWinner} = require("../src/battleShipGameController");
 const {isShipThere} = require("../src/battleship");
 
 beforeEach(() => {
@@ -14,7 +14,7 @@ test('initialize game', () => {
 
 test('add ships to board ', () => {
     const player1 = getPlayerOne();
-    const player2 = getPlayerOne();
+    const player2 = getPlayerTwo();
     expect(isShipThere(player1.board, [4,0])).toBeTruthy();
     expect(isShipThere(player2.board, [4,0])).toBeTruthy();
 });
@@ -43,10 +43,14 @@ test ('kill a ship', () => {
 })
 
 test( 'win the game', () => {
-    shoot([4,0]);
+    shoot([4,0])
+    expect(isThereAWinner()).toBeFalsy();
     shoot([1,2]);
+    expect(isThereAWinner()).toBeFalsy();
     shoot([3,0]);
+    expect(isThereAWinner()).toBeFalsy();
     shoot([1,3]);
+    expect(isThereAWinner()).toBeFalsy();
     shoot([2,0]);
-
+    expect(isThereAWinner()).toBeTruthy();
 })
